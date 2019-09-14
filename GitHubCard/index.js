@@ -53,18 +53,31 @@ const followersArray = [];
 </div>
 
 */
+
+function createCard (){
 const card  = document.createElement('div');
 const userImg = document.createElement('img');
 const cardInfo = document.createElement('div')
 const name = document.createElement('h3')
 const username = document.createElement('p')
 const location = document.createElement('p')
-const Profile = document.createElement('p')
+const profile = document.createElement('p')
 const githubPage = document.createElement('a')
 const followers = document.createElement('p')
 const following = document.createElement('p')
 const bio = document.createElement('p')
 
+card.appendChild(userImg);
+card.appendChild(cardInfo);
+cardInfo.appendChild(name);
+cardInfo.appendChild(username);
+cardInfo.appendChild(location);
+cardInfo.appendChild(profile);
+profile.appendChild(githubPage);
+cardInfo.appendChild(followers);
+cardInfo.appendChild(following);
+cardInfo.appendChild(bio);
+}
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
