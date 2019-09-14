@@ -2,14 +2,18 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-
-axios.get(https://api.github.com/users/taty2010)
-  .then(response => {
-
-  });
-  .catch (err => {
-
+const newCard = document.querySelector('.cards')
+axios
+  .get('https://api.github.com/users/taty2010')
+  .then((response) => {
+      const create = createCard;
+      newCard.appendChild(create(response.data));
   })
+  .catch (err => {
+    console.log('error');
+  })
+  
+
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -54,7 +58,7 @@ const followersArray = [];
 
 */
 
-function createCard (info){
+function createCard (data){
 const card  = document.createElement('div');
 const userImg = document.createElement('img');
 const cardInfo = document.createElement('div')
@@ -83,19 +87,23 @@ cardInfo.classList.add('card-info');
 name.classList.add('name');
 username.classList.add('username');
 
-userImg.src = info.avatar_url;
-name.textContent = info.name;
-username.textContent = info.login;
-location.textContent = `Location: ${info.location}`
-profile.textContent = 'Profile:';
-githubPage.href = info.url;
-followers.textContent = `Followers: ${info.followers}`
-following.textContent = `Following: ${info.following}`
-bio.textContent = `Bio: ${info.bio}`
+userImg.src = data.avatar_url;
+name.textContent = data.name;
+username.textContent = data.login;
+location.textContent = data.location;
+profile.textContent = `Profile: ${githubPage.href = data.html_url}`;
+followers.textContent = `Followers: ${data.followers}`;
+following.textContent = `Following: ${data.following}`;
+bio.textContent = `Bio: ${data.bio}`;
 
-
+return card;
 
 }
+const container = document.querySelector('.container')
+//container.appendChild(createCard(axios))
+//createCard(data);
+
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
