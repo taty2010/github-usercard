@@ -8,7 +8,7 @@ axios.get(https://api.github.com/users/taty2010)
 
   });
   .catch (err => {
-    
+
   })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -53,6 +53,17 @@ const followersArray = [];
 </div>
 
 */
+const card  = document.createElement('div');
+const userImg = document.createElement('img');
+const cardInfo = document.createElement('div')
+const name = document.createElement('h3')
+const username = document.createElement('p')
+const location = document.createElement('p')
+const Profile = document.createElement('p')
+const githubPage = document.createElement('a')
+const followers = document.createElement('p')
+const following = document.createElement('p')
+const bio = document.createElement('p')
 
 /* List of LS Instructors Github username's: 
   tetondan
