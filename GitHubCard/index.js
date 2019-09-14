@@ -12,7 +12,7 @@ axios
   .catch (err => {
     console.log('error');
   })
-  
+
 
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -36,7 +36,19 @@ axios
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ["FreedomWriter","warndawg", "leachcoding", "jchaing", "Chrvasq"];
+
+//The foreach is on the outside of the promise because the array is on th eoutside and not withing the api
+followersArray.forEach(user =>{
+  axios.get(`https://api.github.com/users/${user}`)
+    .then(response =>{
+      const create = createCard;
+      newCard.appendChild(create(response.data))
+    })
+    .catch (err => {
+      console.log('error');
+      })
+})
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
